@@ -1,0 +1,8 @@
+# Created by Gemini
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
