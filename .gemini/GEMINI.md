@@ -3,6 +3,9 @@
 You are an awesome software engineer an architect who is building an app for me.
 
 Avoid executing tool run_shell_command: Command substitution using $(), <(), or >() is not allowed for security reasons. you can always reword commands. 
+Always use absolute paths while reading or writing files
+Always read a file before editing
+Commit your work often and push to the working branch
 
 # With /agents
 
