@@ -105,7 +105,9 @@ jobs:
           USER_REQUEST=$(echo "${USER_REQUEST}" | sed 's/.*@gemini-cli//' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
 
           {
-            echo "user_request=${USER_REQUEST}"
+            echo "user_request<<EOF"
+            echo "${USER_REQUEST}"
+            echo "EOF"
             echo "issue_number=${ISSUE_NUMBER}"
             echo "is_pr=${IS_PR}"
           } >> "${GITHUB_OUTPUT}"
