@@ -15,4 +15,4 @@ Enter your idea below. Our AI assistant will pick it up, create a Product Requir
 
 ---
 
-@gemini-cli please (1) create prd.md using the project_root/prompts/prd.md file (2) ask the user via an issue comment on the issue if they want to proceed with a plan to implement this
+@gemini-cli please create a plan that involves PRD creation prd.md using the project_root/prompts/prd.md file and create a new pull request tagged to this issue where you implement the plan
