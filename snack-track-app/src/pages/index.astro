@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SnackItem from '../components/SnackItem.astro';
+import { snacks } from '../data/snacks';
+---
+
+<Layout title="SnackTrack">
+	<main>
+		<h1>SnackTrack</h1>
+		<a href="/add-snack">Add Snack</a>
+		<div>
+			{snacks.map(snack => <SnackItem snack={snack} />)}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	a {
+		display: block;
+		width: fit-content;
+		margin: 1rem auto;
+		padding: 0.5rem 1rem;
+		border: 1px solid white;
+		border-radius: 0.5rem;
+		color: white;
+		text-decoration: none;
+	}
+</style>

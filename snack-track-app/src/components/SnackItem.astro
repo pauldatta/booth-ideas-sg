@@ -1,0 +1,25 @@
+---
+import type { Snack } from '../data/snacks';
+
+interface Props {
+  snack: Snack;
+}
+
+const { snack } = Astro.props;
+---
+
+<div>
+  <h3>{snack.name}</h3>
+  <p>Quantity: {snack.quantity}</p>
+  <p>Expires on: {snack.expiryDate.toLocaleDateString()}</p>
+</div>
+
+<style>
+  div {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+  }
+</style>
