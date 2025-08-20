@@ -136,6 +136,15 @@ jobs:
           repository: '${{ github.repository }}'
           fetch-depth: 0
 
+      - name: 'Get Branch Name'
+        id: 'get_branch_name'
+        if: steps.get_context.outputs.is_pr == 'true'
+        run: |-
+          set -euo pipefail
+          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          echo "Checked out PR branch: ${BRANCH_NAME}"
+          echo "branch_name=${BRANCH_NAME}" >> "${GITHUB_OUTPUT}"
+
       - name: 'Acknowledge request'
         env:
           GITHUB_ACTOR: '${{ github.actor }}'
@@ -226,6 +235,7 @@ jobs:
             - **Triggering Event**: `${{ github.event_name }}`
             - **Issue/PR Number**: `${{ steps.get_context.outputs.issue_number }}`
             - **Is this a PR?**: `${{ steps.get_context.outputs.is_pr }}`
+            - **Branch Name**: `${{ steps.get_branch_name.outputs.branch_name }}`
             - **Issue/PR Description**:
             `${{ steps.get_description.outputs.description }}`
             - **Comments**:
@@ -268,7 +278,7 @@ jobs:
                - Run any relevant tests or checks to verify the fix works as intended. If possible, provide evidence (test output, screenshots, etc.) that the issue is resolved.
                - **Branching and Committing**:
                  - **NEVER commit directly to the `main` branch.**
-                 - If you are working on a **pull request** (`IS_PR` is `true`), the correct branch is already checked out. Simply commit and push to it.
+                 - If you are working on a **pull request** (`IS_PR` is `true`), the correct branch (`${{ steps.get_branch_name.outputs.branch_name }}`) is already checked out. Simply commit and push to it.
                    - `git add .`
                    - `git commit -m "feat: <describe the change>"`
                    - `git push`
@@ -287,7 +297,7 @@ jobs:
                - Read the specific comment and the context of the PR.
                - Use tools like `gh pr view`, `gh pr diff`, and `cat` to understand the code and discussion.
                - If the comment requests a change or clarification, follow the same process as for fixing an issue: create a checklist plan, implement, test, and commit any required changes, updating the checklist as you go.
-               - **Committing Changes**: The correct PR branch is already checked out. Simply add, commit, and push your changes.
+               - **Committing Changes**: The correct PR branch (`${{ steps.get_branch_name.outputs.branch_name }}`) is already checked out. Simply add, commit, and push your changes.
                  - `git add .`
                  - `git commit -m "fix: address review comments"`
                  - `git push`
