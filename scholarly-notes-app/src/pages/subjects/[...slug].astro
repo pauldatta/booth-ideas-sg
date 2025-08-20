@@ -1,0 +1,14 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NoteCard from '../../components/NoteCard';
+
+const { slug } = Astro.params;
+---
+
+<Layout title={`Subject - ${slug}`}>
+	<h1 class="text-3xl font-bold mb-6">Subject: {slug}</h1>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+		<NoteCard client:load title="Lecture 1" excerpt="Notes on..." subject={slug} />
+		<NoteCard client:load title="Lecture 2" excerpt="More notes on..." subject={slug} />
+	</div>
+</Layout>
