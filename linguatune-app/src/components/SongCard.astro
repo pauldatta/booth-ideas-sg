@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  artist: string;
+  album: string;
+}
+
+const { title, artist, album } = Astro.props;
+---
+
+<div class="card">
+  <h3>{title}</h3>
+  <p>{artist}</p>
+  <p><em>{album}</em></p>
+</div>
+
+<style>
+  .card {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+  }
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin: 0;
+  }
+</style>

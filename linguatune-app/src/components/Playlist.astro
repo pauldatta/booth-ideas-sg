@@ -1,0 +1,30 @@
+---
+import SongCard from './SongCard.astro';
+
+const songs = [
+  { title: 'Song 1', artist: 'Artist 1', album: 'Album 1' },
+  { title: 'Song 2', artist: 'Artist 2', album: 'Album 2' },
+  { title: 'Song 3', artist: 'Artist 3', album: 'Album 3' },
+];
+---
+
+<div>
+  <h2>Recommended Songs</h2>
+  <div class="playlist">
+    {songs.map(song => (
+      <SongCard title={song.title} artist={song.artist} album={song.album} />
+    ))}
+  </div>
+</div>
+
+<style>
+  .playlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  h2 {
+      color: white;
+      margin-bottom: 1rem;
+  }
+</style>
