@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const members = [
+  { id: 1, name: 'John Doe', locker: 2 },
+  { id: 2, name: 'Jane Doe', locker: 5 },
+  { id: 3, name: 'Peter Jones', locker: null },
+];
+---
+
+<Layout title="Members">
+	<h1>Member Directory</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Member ID</th>
+				<th>Name</th>
+				<th>Assigned Locker</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{members.map(member => (
+				<tr>
+					<td>{member.id}</td>
+					<td>{member.name}</td>
+					<td>{member.locker || 'N/A'}</td>
+					<td>
+						<button>Assign Locker</button>
+					</td>
+				</tr>
+			))}
+		</tbody>
+	</table>
+</Layout>
+<style>
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid white;
+		padding: 0.5rem;
+	}
+	button {
+		margin-right: 0.5rem;
+	}
+</style>

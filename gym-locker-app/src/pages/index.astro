@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const lockers = [
+  { id: 1, status: 'available' },
+  { id: 2, status: 'occupied' },
+  { id: 3, status: 'maintenance' },
+  { id: 4, status: 'available' },
+  { id: 5, status: 'occupied' },
+];
+
+const availableLockers = lockers.filter(locker => locker.status === 'available').length;
+const occupiedLockers = lockers.filter(locker => locker.status === 'occupied').length;
+const maintenanceLockers = lockers.filter(locker => locker.status === 'maintenance').length;
+---
+
+<Layout title="Dashboard">
+	<h1>Dashboard</h1>
+	<div class="stats">
+		<div class="stat">
+			<h2>Available Lockers</h2>
+			<p>{availableLockers}</p>
+		</div>
+		<div class="stat">
+			<h2>Occupied Lockers</h2>
+			<p>{occupiedLockers}</p>
+		</div>
+		<div class="stat">
+			<h2>Maintenance Lockers</h2>
+			<p>{maintenanceLockers}</p>
+		</div>
+	</div>
+</Layout>
+<style>
+	.stats {
+		display: flex;
+		gap: 1rem;
+	}
+	.stat {
+		border: 1px solid white;
+		padding: 1rem;
+		border-radius: 0.5rem;
+	}
+</style>
