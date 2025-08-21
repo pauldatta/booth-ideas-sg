@@ -1,0 +1,15 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const { id } = Astro.params;
+---
+
+<Layout title="Add New Student">
+	<h1>Add New Student to Class {id}</h1>
+	<form>
+		<label for="name">Student Name</label>
+		<input type="text" id="name" name="name" />
+
+		<button type="submit">Add Student</button>
+	</form>
+</Layout>

@@ -1,0 +1,40 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const students = [
+	{ id: 1, name: 'Alice' },
+	{ id: 2, name: 'Bob' },
+	{ id: 3, name: 'Charlie' },
+];
+
+const { id } = Astro.params;
+---
+
+<Layout title={`Attendance for Class ${id}`}>
+	<h1>Take Attendance</h1>
+	<form>
+		<table>
+			<thead>
+				<tr>
+					<th>Student</th>
+					<th>Present</th>
+					<th>Absent</th>
+					<th>Late</th>
+					<th>Excused</th>
+				</tr>
+			</thead>
+			<tbody>
+				{students.map(s => (
+					<tr>
+						<td>{s.name}</td>
+						<td><input type="radio" name={`student-${s.id}`} value="present" checked /></td>
+						<td><input type="radio" name={`student-${s.id}`} value="absent" /></td>
+						<td><input type="radio" name={`student-${s.id}`} value="late" /></td>
+						<td><input type="radio" name={`student-${s.id}`} value="excused" /></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+		<button type="submit">Save Attendance</button>
+	</form>
+</Layout>
