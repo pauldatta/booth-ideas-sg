@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NoteEditor from '../../components/NoteEditor';
+
+const { slug } = Astro.params;
+---
+
+<Layout title={`Note - ${slug}`}>
+	<h1 class="text-3xl font-bold mb-6">Editing Note: {slug}</h1>
+	<NoteEditor client:load />
+</Layout>
