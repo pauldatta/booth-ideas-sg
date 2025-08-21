@@ -62,13 +62,13 @@ jobs:
 
     steps:
       - name: 'Initial Repository Checkout for Git Context'
-        uses: actions/checkout@v4' # Use the latest stable version
+        uses: 'actions/checkout@v4' # Use the latest stable version
         with:
           # Use the generated token or default GITHUB_TOKEN for cloning
           token: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
           # A shallow clone is usually sufficient to establish Git context
           fetch-depth: 1
-          
+
       - name: 'Generate GitHub App Token'
         id: 'generate_token'
         if: |-
