@@ -248,6 +248,8 @@ jobs:
 
             ## How to Respond to Issues, PR Comments, and Questions
 
+            When you receive a request, the first thing you should do is to create a plan and post it as a comment to the PR or issue.
+
             This workflow supports three main scenarios:
 
             1. **Creating a Fix for an Issue**
@@ -292,6 +294,30 @@ jobs:
                - Post the response as a comment:
                  - For PRs: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
                  - For Issues: `gh issue comment "${ISSUE_NUMBER}" --body-file response.md`
+               - **After successfully pushing your changes**, post a final comment with instructions on how to run the application. The comment should include the following commands, with placeholders replaced with the correct values:
+                 ```bash
+                 # Navigate to the AI Asia directory
+                 cd ~/"AI Asia"
+
+                 # Create a directory for the new app
+                 mkdir <app-name>
+
+                 # cd into the new directory
+                 cd <app-name>
+
+                 # Clone the specific branch from the repository
+                 git clone -b <branch-name> https://github.com/${{ github.repository }}.git .
+
+                 # cd into the application root folder (if different from the repo root)
+                 cd <app-root-folder>
+
+                 # Install dependencies
+                 npm install
+
+                 # Run the development server
+                 npm run dev
+                 ```
+               - Replace `<app-name>`, `<branch-name>`, and `<app-root-folder>` with the actual values.
 
             2. **Addressing Comments on a Pull Request**
                - Read the specific comment and the context of the PR.
