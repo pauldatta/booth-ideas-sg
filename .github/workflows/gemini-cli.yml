@@ -112,6 +112,17 @@ jobs:
             echo "is_pr=${IS_PR}"
           } >> "${GITHUB_OUTPUT}"
 
+      - name: 'Get branch name'
+        id: 'get_branch_name'
+        if: steps.get_context.outputs.is_pr == 'true'
+        env:
+          GITHUB_TOKEN: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
+          ISSUE_NUMBER: '${{ steps.get_context.outputs.issue_number }}'
+        run: |-
+          set -euo pipefail
+          BRANCH_NAME=$(gh pr view "${ISSUE_NUMBER}" --json headRefName -q .headRefName)
+          echo "branch_name=${BRANCH_NAME}" >> "${GITHUB_OUTPUT}"
+
       - name: 'Set up git user for commits'
         run: |-
           git config --global user.name 'gemini-cli[bot]'
@@ -124,7 +135,7 @@ jobs:
         with:
           token: '${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}'
           repository: '${{ github.repository }}'
-          ref: 'refs/pull/${{ steps.get_context.outputs.issue_number }}/head'
+          ref: '${{ steps.get_branch_name.outputs.branch_name }}'
           fetch-depth: 0
 
       - name: 'Checkout main branch'
@@ -136,14 +147,7 @@ jobs:
           repository: '${{ github.repository }}'
           fetch-depth: 0
 
-      - name: 'Get Branch Name'
-        id: 'get_branch_name'
-        if: steps.get_context.outputs.is_pr == 'true'
-        run: |-
-          set -euo pipefail
-          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-          echo "Checked out PR branch: ${BRANCH_NAME}"
-          echo "branch_name=${BRANCH_NAME}" >> "${GITHUB_OUTPUT}"
+      
 
       - name: 'Acknowledge request'
         env:
