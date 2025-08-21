@@ -284,12 +284,15 @@ jobs:
                    - `git add .`
                    - `git commit -m "feat: <describe the change>"`
                    - `git push`
-                 - If you are working on an **issue** (`IS_PR` is `false`), create a new branch for your changes. A good branch name would be `issue/${ISSUE_NUMBER}/<short-description>`.
-                   - `git checkout -b issue/${ISSUE_NUMBER}/my-fix`
+                 - If you are working on an **issue** (`IS_PR` is `false`), you must push your changes to a pre-existing branch.
+                 - The user will specify the branch name in their request. You must parse the branch name from the user's request.
+                 - **You must not create a new branch.**
+                 - Use `git checkout <branch-name>` to switch to the specified branch.
+                 - If `git checkout <branch-name>` fails, you must stop and report an error to the user that the branch was not found.
+                 - Once on the correct branch, add, commit, and push your changes.
                    - `git add .`
-                   - `git commit -m "feat: <describe the fix>"`
-                   - `git push origin issue/${ISSUE_NUMBER}/my-fix`
-                   - After pushing, you can create a pull request: `gh pr create --title "Fixes #${ISSUE_NUMBER}: <short title>" --body "This PR addresses issue #${ISSUE_NUMBER}."`
+                   - `git commit -m "feat: <describe the changes>"`
+                   - `git push`
                - Summarize what was changed and why in a markdown file: `write_file("response.md", "<your response here>")`
                - Post the response as a comment:
                  - For PRs: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
