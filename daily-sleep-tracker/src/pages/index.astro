@@ -1,0 +1,10 @@
+---
+import SleepLogger from '../components/SleepLogger.tsx';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Daily Sleep Tracker">
+  <main>
+    <SleepLogger client:load />
+  </main>
+</Layout>

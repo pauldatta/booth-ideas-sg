@@ -1,0 +1,13 @@
+
+---
+import Layout from '../layouts/Layout.astro';
+import SleepHistory from '../components/SleepHistory.tsx';
+import SleepChart from '../components/SleepChart.tsx';
+---
+
+<Layout title="Sleep History">
+  <main>
+    <SleepHistory client:load />
+    <SleepChart client:load />
+  </main>
+</Layout>
