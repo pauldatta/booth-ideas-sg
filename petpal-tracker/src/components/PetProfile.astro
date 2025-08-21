@@ -1,0 +1,30 @@
+---
+export interface Props {
+	name: string;
+	avatar: string;
+}
+
+const { name, avatar } = Astro.props;
+---
+
+<div class="pet-profile">
+	<img src={avatar} alt={name} />
+	<h3>{name}</h3>
+</div>
+
+<style>
+.pet-profile {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.pet-profile img {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+</style>
