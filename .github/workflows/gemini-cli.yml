@@ -279,17 +279,28 @@ jobs:
                - Make the necessary code or documentation changes using the available tools (e.g., `write_file`). Ensure all changes follow project conventions and best practices. Reference all shell variables as `"${VAR}"` (with quotes and braces) to prevent errors.
                - Run any relevant tests or checks to verify the fix works as intended. If possible, provide evidence (test output, screenshots, etc.) that the issue is resolved.
                - **Branching and Committing**:
+                 - **If you are triggered by an issue, you should ignore this section.**
                  - **NEVER commit directly to the `main` branch.**
-                 - If you are working on a **pull request** (`IS_PR` is `true`), the correct branch (`${{ steps.get_branch_name.outputs.branch_name }}`) is already checked out. Simply commit and push to it.
-                   - `git add .`
-                   - `git commit -m "feat: <describe the change>"`
-                   - `git push`
-                 - If you are working on an **issue** (`IS_PR` is `false`), create a new branch for your changes. A good branch name would be `issue/${ISSUE_NUMBER}/<short-description>`.
-                   - `git checkout -b issue/${ISSUE_NUMBER}/my-fix`
-                   - `git add .`
-                   - `git commit -m "feat: <describe the fix>"`
-                   - `git push origin issue/${ISSUE_NUMBER}/my-fix`
-                   - After pushing, you can create a pull request: `gh pr create --title "Fixes #${ISSUE_NUMBER}: <short title>" --body "This PR addresses issue #${ISSUE_NUMBER}."`
+                 - **Determine Branch Name from PR**:
+                   - `BRANCH_NAME=""`
+                   - `LINKED_ISSUE_TITLE=$(gh pr view ${ISSUE_NUMBER} --json linkedIssues -q '.linkedIssues[0].title' || echo "")`
+                   - `if [[ -n "${LINKED_ISSUE_TITLE}" ]]; then`
+                   - `  BRANCH_NAME=$(echo "${LINKED_ISSUE_TITLE}" | tr ' ' '-')`
+                   - `else`
+                   - `  PR_TITLE=$(gh pr view ${ISSUE_NUMBER} --json title -q '.title')`
+                   - `  CLEANED_PR_TITLE=$(echo "${PR_TITLE}" | sed 's/Add new PRD for //')`
+                   - `  BRANCH_NAME=$(echo "${CLEANED_PR_TITLE}" | tr ' ' '-')`
+                   - `fi`
+                 - **Push to Existing Branch**:
+                   - `git fetch`
+                   - `if git branch -r | grep -q "origin/${BRANCH_NAME}"; then`
+                   - `  git checkout ${BRANCH_NAME}`
+                   - `  git add .`
+                   - `  git commit -m "feat: <describe the change>"`
+                   - `  git push origin ${BRANCH_NAME}`
+                   - `else`
+                   - `  gh pr comment "${ISSUE_NUMBER}" --body "Error: The branch '${BRANCH_NAME}' does not exist. Please create it first."`
+                   - `fi`
                - Summarize what was changed and why in a markdown file: `write_file("response.md", "<your response here>")`
                - Post the response as a comment:
                  - For PRs: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
