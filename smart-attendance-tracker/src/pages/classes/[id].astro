@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const students = [
+	{ id: 1, name: 'Alice' },
+	{ id: 2, name: 'Bob' },
+	{ id: 3, name: 'Charlie' },
+];
+
+const { id } = Astro.params;
+---
+
+<Layout title={`Class ${id}`}>
+	<h1>Class Details</h1>
+	<p>Class ID: {id}</p>
+
+	<h2>Students</h2>
+	<a href={`/classes/${id}/students/new`}>Add New Student</a>
+	<ul>
+		{students.map(s => (
+			<li>{s.name}</li>
+		))}
+	</ul>
+
+	<a href={`/classes/${id}/attendance`}>Take Attendance</a>
+</Layout>

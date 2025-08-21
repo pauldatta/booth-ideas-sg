@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Profile">
+	<h1>Your Profile</h1>
+	<form>
+		<label for="name">Name</label>
+		<input type="text" id="name" name="name" value="John Doe" />
+
+		<label for="email">Email</label>
+		<input type="email" id="email" name="email" value="john.doe@example.com" />
+
+		<label for="school">School</label>
+		<input type="text" id="school" name="school" value="Springfield Elementary" />
+
+		<button type="submit">Update Profile</button>
+	</form>
+</Layout>
