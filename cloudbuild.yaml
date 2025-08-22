@@ -1,0 +1,40 @@
+steps:
+  # Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '-t'
+  - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
+  - '.'
+  - '-f'
+  - 'ideas-app/Dockerfile'
+
+  # Push the container image to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'push'
+  - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
+
+  # Deploy container image to Cloud Run
+- name: 'gcr.io/google-appengine/exec-wrapper'
+  args:
+  - '-i'
+  - 'gcr.io/cloud-builders/gcloud'
+  - '--'
+  - 'run'
+  - 'deploy'
+  - '${_SERVICE_NAME}'
+  - '--image'
+  - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
+  - '--region'
+  - '${_LOCATION}'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+images:
+- '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
+substitutions:
+  _LOCATION: 'asia-southeast1'
+  _REPOSITORY: 'ideas-app-repo'
+  _IMAGE_NAME: 'ideas-app'
+  _SERVICE_NAME: 'ideas-app'
