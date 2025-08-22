@@ -114,7 +114,7 @@ async function pushPrdToGitHub(prd: string, projectTitle: string): Promise<GitHu
             owner,
             repo,
             issue_number: pullRequest.data.number,
-            body: "@gemini-cli code this for me",
+            body: "@gemini-cli Generate an Astro frontend application referencing the PRD",
         });
 
         return { success: true, error: null, pullRequestUrl: pullRequest.data.html_url, branchName };
@@ -464,3 +464,8 @@ const initialState: ServerActionState = {
 
     
 
+
+
+    
+
+    

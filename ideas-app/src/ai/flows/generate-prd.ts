@@ -56,7 +56,11 @@ const prompt = ai.definePrompt({
   9.  **Success Metrics**: Define how the success of the product will be measured. Use concrete metrics (e.g., user engagement, conversion rates, customer satisfaction scores).
 
   Ensure the document is well-formatted, clear, and professional. Use Markdown for formatting (e.g., headings, bold text, lists).
+  IMPORTANT: You must output the full, complete, and unabridged PRD. Do not truncate or summarize it.
   `,
+  config: {
+    maxOutputTokens: 8000,
+  }
 });
 
 const generatePrdFlow = ai.defineFlow(
