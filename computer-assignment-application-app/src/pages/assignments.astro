@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const assignments = [
+  { id: 1, assetTag: 'LAP-001', employeeName: 'Alice Johnson', assignmentDate: '2023-01-15' },
+  { id: 2, assetTag: 'DESK-002', employeeName: 'Bob Williams', assignmentDate: '2023-02-20' },
+];
+---
+
+<Layout title="Assignments">
+	<main>
+		<h1>Assignment Records</h1>
+		<button>New Assignment</button>
+		<table>
+			<thead>
+				<tr>
+					<th>Asset Tag</th>
+					<th>Employee</th>
+					<th>Assignment Date</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{assignments.map(assignment => (
+					<tr>
+						<td>{assignment.assetTag}</td>
+						<td>{assignment.employeeName}</td>
+						<td>{assignment.assignmentDate}</td>
+						<td><a href={`/assignments/${assignment.id}`}>View</a></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</main>
+</Layout>
+<style>
+	main {
+		padding: 2rem;
+	}
+	table {
+		width: 100%;
+		margin-top: 1rem;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid #333;
+		padding: 0.5rem;
+	}
+	button {
+		background: var(--accent);
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+	}
+</style>

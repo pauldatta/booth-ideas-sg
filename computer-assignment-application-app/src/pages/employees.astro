@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const employees = [
+  { id: 1, name: 'Alice Johnson', department: 'Engineering' },
+  { id: 2, name: 'Bob Williams', department: 'Marketing' },
+  { id: 3, name: 'Charlie Brown', department: 'HR' },
+];
+---
+
+<Layout title="Employees">
+	<main>
+		<h1>Employee Directory</h1>
+		<button>Add New Employee</button>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Department</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{employees.map(employee => (
+					<tr>
+						<td>{employee.name}</td>
+						<td>{employee.department}</td>
+						<td><a href={`/employees/${employee.id}`}>View</a></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</main>
+</Layout>
+<style>
+	main {
+		padding: 2rem;
+	}
+	table {
+		width: 100%;
+		margin-top: 1rem;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid #333;
+		padding: 0.5rem;
+	}
+	button {
+		background: var(--accent);
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+	}
+</style>
