@@ -16,14 +16,20 @@ const tool = {
 ---
 
 <Layout title={tool.name}>
-    <main>
-        <h1>{tool.name}</h1>
-        <img src={tool.photo} alt={tool.name} />
-        <p><strong>Brand:</strong> {tool.brand}</p>
-        <p><strong>Type:</strong> {tool.type}</p>
-        <p><strong>Model:</strong> {tool.model}</p>
-        <p><strong>Quantity:</strong> {tool.quantity}</p>
-        <a href={`/tools/${tool.id}/edit`}>Edit</a>
-        <a href="/">Back to list</a>
+    <main class="container mx-auto p-4">
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h1 class="text-3xl font-bold mb-4">{tool.name}</h1>
+            <img src={tool.photo} alt={tool.name} class="w-full h-64 object-cover rounded-md mb-4" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
+                <p><strong>Brand:</strong> {tool.brand}</p>
+                <p><strong>Type:</strong> {tool.type}</p>
+                <p><strong>Model:</strong> {tool.model}</p>
+                <p><strong>Quantity:</strong> {tool.quantity}</p>
+            </div>
+            <div class="mt-6">
+                <a href={`/tools/${tool.id}/edit`} class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</a>
+                <a href="/" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Back to list</a>
+            </div>
+        </div>
     </main>
 </Layout>
