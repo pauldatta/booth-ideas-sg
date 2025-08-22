@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const assets = [
+  { id: 1, tag: 'LAP-001', model: 'MacBook Pro', status: 'Assigned' },
+  { id: 2, tag: 'DESK-002', model: 'Dell OptiPlex', status: 'Available' },
+  { id: 3, tag: 'LAP-003', model: 'Lenovo ThinkPad', status: 'In Repair' },
+];
+---
+
+<Layout title="Assets">
+	<main>
+		<h1>Asset Inventory</h1>
+		<button>Add New Asset</button>
+		<table>
+			<thead>
+				<tr>
+					<th>Asset Tag</th>
+					<th>Model</th>
+					<th>Status</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{assets.map(asset => (
+					<tr>
+						<td>{asset.tag}</td>
+						<td>{asset.model}</td>
+						<td>{asset.status}</td>
+						<td><a href={`/assets/${asset.id}`}>View</a></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</main>
+</Layout>
+<style>
+	main {
+		padding: 2rem;
+	}
+	table {
+		width: 100%;
+		margin-top: 1rem;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid #333;
+		padding: 0.5rem;
+	}
+	button {
+		background: var(--accent);
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+	}
+</style>

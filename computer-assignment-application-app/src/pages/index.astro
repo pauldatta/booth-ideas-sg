@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AssetFlow Dashboard">
+	<main>
+		<h1>Dashboard</h1>
+		<p>Welcome to AssetFlow, your solution for streamlined computer asset management.</p>
+		<section>
+			<h2>Overview</h2>
+			<div class="stats">
+				<div class="stat">
+					<h3>Total Assets</h3>
+					<p>150</p>
+				</div>
+				<div class="stat">
+					<h3>Assigned Assets</h3>
+					<p>120</p>
+				</div>
+				<div class="stat">
+					<h3>Available Assets</h3>
+					<p>30</p>
+				</div>
+				<div class="stat">
+					<h3>Employees</h3>
+					<p>100</p>
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+<style>
+	main {
+		padding: 2rem;
+	}
+	section {
+		margin-top: 2rem;
+	}
+	.stats {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+	.stat {
+		background: #222;
+		padding: 1rem;
+		border-radius: 8px;
+	}
+</style>
