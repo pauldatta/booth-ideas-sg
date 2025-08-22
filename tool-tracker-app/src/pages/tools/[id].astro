@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const { id } = Astro.params;
+
+// Mock data for a single tool
+const tool = {
+    id: id,
+    name: 'Hammer',
+    brand: 'Stanley',
+    type: 'Hand Tool',
+    model: '51-163',
+    quantity: 1,
+    photo: 'https://via.placeholder.com/150'
+};
+---
+
+<Layout title={tool.name}>
+    <main>
+        <h1>{tool.name}</h1>
+        <img src={tool.photo} alt={tool.name} />
+        <p><strong>Brand:</strong> {tool.brand}</p>
+        <p><strong>Type:</strong> {tool.type}</p>
+        <p><strong>Model:</strong> {tool.model}</p>
+        <p><strong>Quantity:</strong> {tool.quantity}</p>
+        <a href={`/tools/${tool.id}/edit`}>Edit</a>
+        <a href="/">Back to list</a>
+    </main>
+</Layout>

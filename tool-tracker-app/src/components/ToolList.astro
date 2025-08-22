@@ -1,0 +1,20 @@
+---
+const tools = [
+    { id: 1, name: 'Hammer', brand: 'Stanley', type: 'Hand Tool' },
+    { id: 2, name: 'Drill', brand: 'DeWalt', type: 'Power Tool' },
+    { id: 3, name: 'Screwdriver Set', brand: 'Craftsman', type: 'Hand Tool' },
+];
+---
+
+<div>
+    <h2>My Tools</h2>
+    <a href="/tools/new">Add New Tool</a>
+    <ul>
+        {tools.map(tool => (
+            <li>
+                <a href={`/tools/${tool.id}`}>{tool.name}</a>
+                <span>({tool.brand} - {tool.type})</span>
+            </li>
+        ))}
+    </ul>
+</div>
