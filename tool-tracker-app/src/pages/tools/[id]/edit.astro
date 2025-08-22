@@ -1,0 +1,13 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ToolForm from '../../../components/ToolForm.astro';
+
+const { id } = Astro.params;
+---
+
+<Layout title="Edit Tool">
+    <main>
+        <h1>Edit Tool</h1>
+        <ToolForm />
+    </main>
+</Layout>

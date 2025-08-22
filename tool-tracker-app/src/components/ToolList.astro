@@ -1,0 +1,24 @@
+---
+const tools = [
+    { id: 1, name: 'Hammer', brand: 'Stanley', type: 'Hand Tool' },
+    { id: 2, name: 'Drill', brand: 'DeWalt', type: 'Power Tool' },
+    { id: 3, name: 'Screwdriver Set', brand: 'Craftsman', type: 'Hand Tool' },
+];
+---
+
+<div class="container mx-auto p-4">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold">My Tools</h2>
+        <a href="/tools/new" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add New Tool
+        </a>
+    </div>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {tools.map(tool => (
+            <li class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                <a href={`/tools/${tool.id}`} class="text-xl font-semibold hover:underline">{tool.name}</a>
+                <p class="text-gray-400">{tool.brand} - {tool.type}</p>
+            </li>
+        ))}
+    </ul>
+</div>
