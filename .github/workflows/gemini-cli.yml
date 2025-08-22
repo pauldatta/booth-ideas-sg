@@ -306,22 +306,22 @@ jobs:
                - Post the response as a comment:
                  - For PRs: `gh pr comment "${ISSUE_NUMBER}" --body-file response.md`
                  - For Issues: `gh issue comment "${ISSUE_NUMBER}" --body-file response.md`
-               - **After successfully pushing your changes**, post a final comment with instructions on how to run the application. The comment should include the following commands, with placeholders replaced with the correct values:
+               - **After successfully pushing your changes**, post a final comment with instructions on how to run the application. The comment should include the following commands:
                  ```bash
                  # Navigate to the AI Asia directory
                  cd ~/"AI Asia"
 
                  # Create a directory for the new app
-                 mkdir <app-name>
+                 mkdir ${{ steps.get_branch_name.outputs.branch_name }}-app
 
                  # cd into the new directory
-                 cd <app-name>
+                 cd ${{ steps.get_branch_name.outputs.branch_name }}-app
 
                  # Clone the specific branch from the repository
-                 git clone -b <branch-name> https://github.com/${{ github.repository }}.git .
+                 git clone -b ${{ steps.get_branch_name.outputs.branch_name }} https://github.com/${{ github.repository }}.git .
 
                  # cd into the application root folder (if different from the repo root)
-                 cd <app-root-folder>
+                 cd ideas-app
 
                  # Install dependencies
                  npm install
@@ -329,7 +329,6 @@ jobs:
                  # Run the development server
                  npm run dev
                  ```
-               - Replace `<app-name>`, `<branch-name>`, and `<app-root-folder>` with the actual values.
 
             2. **Addressing Comments on a Pull Request**
                - Read the specific comment and the context of the PR.
