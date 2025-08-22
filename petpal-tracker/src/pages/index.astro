@@ -1,0 +1,37 @@
+---
+import PetProfile from '../components/PetProfile.astro';
+import FeedingSchedule from '../components/FeedingSchedule.astro';
+
+const pets = [
+	{ name: 'Buddy', avatar: 'https://placehold.co/50x50' },
+	{ name: 'Lucy', avatar: 'https://placehold.co/50x50' }
+];
+
+const feedingTimes = ['8:00 AM', '6:00 PM'];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>PetPal Tracker</title>
+		<link rel="stylesheet" href="/styles/global.css" />
+	</head>
+	<body>
+		<header>
+			<h1>PetPal Tracker</h1>
+		</header>
+		<main>
+			<h2>Welcome, [Child's Name]!</h2>
+			<div class="pet-profiles">
+				<h3>Your Pets</h3>
+				{pets.map(pet => <PetProfile name={pet.name} avatar={pet.avatar} />)}
+			</div>
+			<div class="feeding-schedule">
+				<FeedingSchedule times={feedingTimes} />
+			</div>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+---
+export interface Props {
+	times: string[];
+}
+
+const { times } = Astro.props;
+---
+
+<div class="feeding-schedule-component">
+	<h4>Feeding Schedule</h4>
+	<ul>
+		{times.map(time => <li>{time}</li>)}
+	</ul>
+</div>
+
+<style>
+.feeding-schedule-component {
+	text-align: left;
+}
+</style>
