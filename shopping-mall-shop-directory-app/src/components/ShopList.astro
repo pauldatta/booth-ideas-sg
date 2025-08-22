@@ -1,0 +1,16 @@
+---
+const shops = [
+  { name: 'Shop A', category: 'Fashion' },
+  { name: 'Shop B', category: 'Electronics' },
+  { name: 'Shop C', category: 'Food' },
+];
+---
+
+<div>
+  <h2>Shops</h2>
+  <ul>
+    {shops.map(shop => (
+      <li>{shop.name} - {shop.category}</li>
+    ))}
+  </ul>
+</div>
