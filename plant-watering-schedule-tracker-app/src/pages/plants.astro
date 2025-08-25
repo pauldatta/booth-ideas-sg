@@ -1,0 +1,21 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const plants = [
+  { id: 1, name: 'Monstera', lastWatered: '2025-08-20' },
+  { id: 2, name: 'Snake Plant', lastWatered: '2025-08-15' },
+  { id: 3, name: 'Pothos', lastWatered: '2025-08-22' },
+];
+---
+
+<MainLayout title="My Plants">
+  <h1>My Plants</h1>
+  <ul>
+    {plants.map((plant) => (
+      <li>
+        {plant.name} - Last watered on {plant.lastWatered}
+      </li>
+    ))}
+  </ul>
+  <a href="/plants/new">Add a new plant</a>
+</MainLayout>
