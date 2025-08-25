@@ -1,0 +1,31 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const meetings = [
+  { id: 1, title: 'Project Kick-off', date: '2025-08-25', summary: 'Initial meeting to discuss project goals and timelines.' },
+  { id: 2, title: 'Weekly Sync', date: '2025-08-24', summary: 'Regular weekly sync to discuss progress and blockers.' },
+  { id: 3, title: 'Design Review', date: '2025-08-22', summary: 'Review of the new design mockups.' },
+];
+---
+
+<MainLayout title="Meeting Recorder">
+  <h1 class="text-3xl font-bold mb-4 text-white">Dashboard</h1>
+
+  <div class="mb-8">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Start New Recording
+    </button>
+  </div>
+
+  <h2 class="text-2xl font-bold mb-4 text-white">Recent Meetings</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {meetings.map(meeting => (
+      <div class="bg-gray-800 rounded-lg p-4 text-white">
+        <h3 class="text-xl font-bold">{meeting.title}</h3>
+        <p class="text-gray-400">{meeting.date}</p>
+        <p class="mt-2">{meeting.summary}</p>
+        <a href={`/meetings/${meeting.id}`} class="text-blue-400 hover:underline mt-4 inline-block">View Details</a>
+      </div>
+    ))}
+  </div>
+</MainLayout>
