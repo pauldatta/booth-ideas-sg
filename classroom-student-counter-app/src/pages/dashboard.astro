@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const classes = [
+  { id: 1, name: 'Mathematics', period: 1, room: '101', capacity: 30, current: 28 },
+  { id: 2, name: 'Science', period: 2, room: '203', capacity: 25, current: 25 },
+  { id: 3, name: 'History', period: 3, room: '305', capacity: 32, current: 31 },
+];
+---
+
+<Layout title="Dashboard | Classroom Student Count Tracker">
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">Dashboard</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {classes.map(c => (
+        <a href={`/class/${c.id}`} class="block p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">{c.name}</h5>
+          <p class="font-normal text-gray-700">Period: {c.period}</p>
+          <p class="font-normal text-gray-700">Room: {c.room}</p>
+          <p class="font-normal text-gray-700">
+            Students: {c.current} / {c.capacity}
+          </p>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>

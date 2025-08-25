@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const classes = [
+  { id: 1, name: 'Mathematics', period: 1, room: '101', capacity: 30, current: 28 },
+  { id: 2, name: 'Science', period: 2, room: '203', capacity: 25, current: 25 },
+  { id: 3, name: 'History', period: 3, room: '305', capacity: 32, current: 31 },
+];
+
+const { id } = Astro.params;
+const classInfo = classes.find(c => c.id === parseInt(id));
+---
+
+<Layout title={`${classInfo.name} | Classroom Student Count Tracker`}>
+  <main class="container mx-auto px-4 py-8">
+    <a href="/dashboard" class="text-blue-500 hover:underline">&larr; Back to Dashboard</a>
+    <h1 class="text-3xl font-bold my-4">{classInfo.name}</h1>
+    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <p class="text-gray-700"><span class="font-bold">Period:</span> {classInfo.period}</p>
+        <p class="text-gray-700"><span class="font-bold">Room:</span> {classInfo.room}</p>
+        <p class="text-gray-700"><span class="font-bold">Capacity:</span> {classInfo.capacity}</p>
+      </div>
+      <div class="flex items-center justify-center text-6xl font-bold text-gray-800 mb-4">
+        <span id="student-count">{classInfo.current}</span>
+      </div>
+      <div class="flex items-center justify-center space-x-4">
+        <button id="decrement" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">-</button>
+        <button id="increment" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">+</button>
+      </div>
+    </div>
+  </main>
+  <script>
+    const countEl = document.getElementById('student-count');
+    const incrementBtn = document.getElementById('increment');
+    const decrementBtn = document.getElementById('decrement');
+
+    let count = parseInt(countEl.textContent);
+
+    incrementBtn.addEventListener('click', () => {
+      count++;
+      countEl.textContent = count;
+    });
+
+    decrementBtn.addEventListener('click', () => {
+      count--;
+      countEl.textContent = count;
+    });
+  </script>
+</Layout>
