@@ -1,0 +1,21 @@
+---
+const weather = {
+  location: 'San Francisco',
+  temperature: '65°F',
+  condition: 'Sunny',
+};
+---
+
+<div class="weather-display">
+  <h2>{weather.location}</h2>
+  <p>{weather.temperature}</p>
+  <p>{weather.condition}</p>
+</div>
+
+<style>
+  .weather-display {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+</style>

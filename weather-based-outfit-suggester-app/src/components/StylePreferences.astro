@@ -1,0 +1,39 @@
+---
+// This is a placeholder for style preferences.
+// In a real application, this would be a form that saves user preferences.
+---
+
+<div class="style-preferences">
+  <h2>Style Preferences</h2>
+  <form>
+    <div>
+      <label for="style">Style</label>
+      <select id="style">
+        <option>Casual</option>
+        <option>Business Casual</option>
+        <option>Formal</option>
+        <option>Athletic</option>
+      </select>
+    </div>
+    <div>
+      <label for="comfort">Comfort</label>
+      <select id="comfort">
+        <option>Always Cold</option>
+        <option>Runs Warm</option>
+      </select>
+    </div>
+    <button type="submit">Save</button>
+  </form>
+</div>
+
+<style>
+  .style-preferences {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+  form div {
+    margin-bottom: 1rem;
+  }
+</style>
