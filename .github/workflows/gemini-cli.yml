@@ -201,9 +201,9 @@ jobs:
         run: |-
           set -euo pipefail
           if [[ "${IS_PR}" == "true" ]]; then
-            COMMENTS=$(gh pr view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{{"\n"}}{{end}}')
+            COMMENTS=$(gh pr view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{"\n"}}{{end}}')
           else
-            COMMENTS=$(gh issue view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{{"\n"}}{{end}}')
+            COMMENTS=$(gh issue view "${ISSUE_NUMBER}" --json comments --template '{{range .comments}}{{.author.login}}: {{.body}}{"\n"}}{{end}}')
           fi
           {
             echo "comments<<EOF"
@@ -308,20 +308,17 @@ jobs:
                  - For Issues: `gh issue comment "${ISSUE_NUMBER}" --body-file response.md`
                - **After successfully pushing your changes**, post a final comment with instructions on how to run the application. The comment should include the following commands:
                  ```bash
-                 # Navigate to the AI Asia directory
-                 cd ~/"AI Asia"
+                 # Clone the repository
+                 git clone https://github.com/pauldatta/booth-ideas-sg
 
-                 # Create a directory for the new app
-                 mkdir ${{ steps.get_branch_name.outputs.branch_name }}-app
+                 # Navigate into the repository directory
+                 cd booth-ideas-sg
 
-                 # cd into the new directory
+                 # Switch to the correct branch
+                 git checkout ${{ steps.get_branch_name.outputs.branch_name }}
+
+                 # Navigate into the application directory
                  cd ${{ steps.get_branch_name.outputs.branch_name }}-app
-
-                 # Clone the specific branch from the repository
-                 git clone -b ${{ steps.get_branch_name.outputs.branch_name }} https://github.com/${{ github.repository }}.git .
-
-                 # cd into the application root folder (if different from the repo root)
-                 cd ideas-app
 
                  # Install dependencies
                  npm install
