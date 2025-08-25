@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+---
+
+<Layout title="SmartGrocer">
+	<Header />
+	<main>
+		<h1>Welcome to SmartGrocer</h1>
+		<form>
+			<label for="item">Add Item</label>
+			<input type="text" id="item" name="item" />
+			<button type="submit">Add</button>
+		</form>
+		<ul>
+			<li>Milk</li>
+			<li>Bread</li>
+			<li>Eggs</li>
+		</ul>
+	</main>
+</Layout>
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	form {
+		display: flex;
+		gap: 1rem;
+		margin-bottom: 2rem;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 1rem;
+		margin-bottom: 0.5rem;
+	}
+</style>
