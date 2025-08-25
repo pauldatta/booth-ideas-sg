@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ItemList from '../../components/ItemList.astro';
+import AddItemForm from '../../components/AddItemForm.astro';
+
+const { id } = Astro.params;
+
+const lockers = [
+  { id: 1, name: 'Gym Locker' },
+  { id: 2, name: 'Work Locker' },
+  { id: 3, name: 'School Locker' },
+];
+
+const locker = lockers.find(l => l.id === parseInt(id));
+---
+
+<Layout title={locker.name}>
+  <h1>{locker.name}</h1>
+  <ItemList />
+  <AddItemForm />
+</Layout>
