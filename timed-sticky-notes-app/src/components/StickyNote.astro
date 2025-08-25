@@ -1,0 +1,35 @@
+---
+export interface Props {
+  title: string;
+  content: string;
+  color?: string;
+}
+
+const { title, content, color = 'yellow' } = Astro.props;
+---
+
+<div class:list={["sticky-note", color]}>
+  <h2>{title}</h2>
+  <p>{content}</p>
+  <slot />
+</div>
+
+<style>
+  .sticky-note {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .yellow {
+    background-color: #fefcbf;
+    color: #333;
+  }
+  .pink {
+    background-color: #ffc0cb;
+    color: #333;
+  }
+  .blue {
+    background-color: #add8e6;
+    color: #333;
+  }
+</style>
