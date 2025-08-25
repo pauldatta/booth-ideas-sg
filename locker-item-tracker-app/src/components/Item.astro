@@ -1,0 +1,21 @@
+---
+export interface Props {
+  item: {
+    id: number;
+    name: string;
+  };
+}
+
+const { item } = Astro.props;
+---
+
+<li>{item.name}</li>
+
+<style>
+  li {
+    background: #334155;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

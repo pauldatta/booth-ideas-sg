@@ -1,0 +1,27 @@
+---
+import Item from './Item.astro';
+
+const items = [
+  { id: 1, name: 'Towel' },
+  { id: 2, name: 'Shampoo' },
+  { id: 3, name: 'Gym Shoes' },
+];
+---
+
+<div class="item-list">
+  <h2>Items in this locker:</h2>
+  <ul>
+    {items.map(item => <Item item={item} />)}
+  </ul>
+</div>
+
+<style>
+  .item-list h2 {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+</style>
