@@ -1,0 +1,165 @@
+---
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Simple Math Calculator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .calculator {
+      width: 320px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .display {
+      background-color: #222;
+      color: white;
+      font-size: 2em;
+      padding: 20px;
+      text-align: right;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .button {
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      padding: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #eaeaea;
+    }
+    .operator {
+      background-color: #f5a623;
+      color: white;
+    }
+    .operator:hover {
+      background-color: #f49b0b;
+    }
+    .zero {
+      grid-column: span 2;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">0</div>
+    <div class="buttons">
+      <button class="button">C</button>
+      <button class="button">+/-</button>
+      <button class="button">%</button>
+      <button class="button operator">/</button>
+      <button class="button">7</button>
+      <button class="button">8</button>
+      <button class="button">9</button>
+      <button class="button operator">*</button>
+      <button class="button">4</button>
+      <button class="button">5</button>
+      <button class="button">6</button>
+      <button class="button operator">-</button>
+      <button class="button">1</button>
+      <button class="button">2</button>
+      <button class="button">3</button>
+      <button class="button operator">+</button>
+      <button class="button zero">0</button>
+      <button class="button">.</button>
+      <button class="button operator">=</button>
+    </div>
+  </div>
+  <script>
+    const display = document.querySelector('.display');
+    const buttons = document.querySelector('.buttons');
+
+    let currentInput = '';
+    let operator = '';
+    let previousInput = '';
+
+    buttons.addEventListener('click', (event) => {
+      const button = event.target;
+      const buttonText = button.textContent;
+
+      if (button.classList.contains('button') && !button.classList.contains('operator')) {
+        if (buttonText === '.' && currentInput.includes('.')) return;
+        if (currentInput === '0' && buttonText !== '.') {
+          currentInput = buttonText;
+        } else {
+          currentInput += buttonText;
+        }
+        display.textContent = currentInput;
+      }
+
+      if (button.classList.contains('operator')) {
+        if (buttonText === '=') {
+          if (currentInput && previousInput && operator) {
+            currentInput = calculate(previousInput, operator, currentInput);
+            display.textContent = currentInput;
+            previousInput = '';
+            operator = '';
+          }
+        } else {
+          if (currentInput) {
+            previousInput = currentInput;
+            currentInput = '';
+          }
+          operator = buttonText;
+        }
+      }
+
+      if (buttonText === 'C') {
+        currentInput = '';
+        previousInput = '';
+        operator = '';
+        display.textContent = '0';
+      }
+
+      if (buttonText === '+/-') {
+        if (currentInput) {
+          currentInput = (parseFloat(currentInput) * -1).toString();
+          display.textContent = currentInput;
+        }
+      }
+
+      if (buttonText === '%') {
+        if (currentInput) {
+          currentInput = (parseFloat(currentInput) / 100).toString();
+          display.textContent = currentInput;
+        }
+      }
+    });
+
+    function calculate(a, op, b) {
+      const numA = parseFloat(a);
+      const numB = parseFloat(b);
+      switch (op) {
+        case '+':
+          return (numA + numB).toString();
+        case '-':
+          return (numA - numB).toString();
+        case '*':
+          return (numA * numB).toString();
+        case '/':
+          if (numB === 0) return 'Error';
+          return (numA / numB).toString();
+        default:
+          return b;
+      }
+    }
+  </script>
+</body>
+</html>
