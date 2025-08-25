@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Dashboard from '../components/Dashboard';
+---
+
+<Layout title="Dashboard">
+	<h1 class="text-4xl font-bold mb-4">Dashboard</h1>
+	<Dashboard client:load />
+</Layout>

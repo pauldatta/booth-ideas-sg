@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SightingForm from '../components/SightingForm';
+---
+
+<Layout title="Monkey Sighting Tracker">
+	<h1 class="text-4xl font-bold mb-4">Record a New Sighting</h1>
+	<SightingForm client:load />
+</Layout>

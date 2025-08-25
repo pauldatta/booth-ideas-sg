@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpeciesList from '../components/SpeciesList';
+---
+
+<Layout title="Species">
+	<h1 class="text-4xl font-bold mb-4">Species</h1>
+	<SpeciesList client:load />
+</Layout>
