@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <header class="flex items-center justify-between p-4 border-b border-gray-700">
+    <h1 class="text-xl font-bold">Daily Step Tracker</h1>
+  </header>
+
+  <main class="flex-grow p-4">
+    <div class="text-center">
+      <p class="text-gray-400">Today's Steps</p>
+      <p class="text-6xl font-bold">8,754</p>
+    </div>
+
+    <div class="mt-8">
+      <div class="flex justify-between text-sm text-gray-400">
+        <p>Goal: 10,000 steps</p>
+        <p>87%</p>
+      </div>
+      <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+        <div class="bg-green-500 h-2.5 rounded-full" style="width: 87%"></div>
+      </div>
+    </div>
+
+    <div class="mt-8">
+      <h2 class="text-lg font-bold">History</h2>
+      <div class="mt-4 space-y-4">
+        <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+          <div>
+            <p class="font-bold">Yesterday</p>
+            <p class="text-sm text-gray-400">12,345 steps</p>
+          </div>
+          <div class="w-1/2 bg-gray-700 rounded-full h-2.5">
+            <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between p-4 bg-gray-800 rounded-lg">
+          <div>
+            <p class="font-bold">2 days ago</p>
+            <p class="text-sm text-gray-400">9,876 steps</p>
+          </div>
+          <div class="w-1/2 bg-gray-700 rounded-full h-2.5">
+            <div class="bg-green-500 h-2.5 rounded-full" style="width: 98%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="grid grid-cols-3 gap-4 p-4 border-t border-gray-700">
+    <button class="p-2 text-center rounded-lg hover:bg-gray-800">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+      </svg>
+      <span class="text-xs">Home</span>
+    </button>
+    <button class="p-2 text-center rounded-lg hover:bg-gray-800">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6 0h6M9 19a2 2 0 002 2h2a2 2 0 002-2M9 19A2 2 0 017 17v-6a2 2 0 012-2h2a2 2 0 012 2v6a2 2 0 01-2 2m-6 0h6" />
+      </svg>
+      <span class="text-xs">Goals</span>
+    </button>
+    <button class="p-2 text-center rounded-lg hover:bg-gray-800">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+      </svg>
+      <span class="text-xs">Profile</span>
+    </button>
+  </footer>
+</Layout>
