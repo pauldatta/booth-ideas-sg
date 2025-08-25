@@ -12,7 +12,7 @@ export function GeneratedContent({ data }: GeneratedContentProps) {
     <div className="space-y-12">
       <DownloadSection data={data} />
       <Separator />
-      <FullPrdSection prd={data.fullPrd} />
+      <FullPrdSection prdHtml={data.fullPrdHtml} />
     </div>
   );
 }

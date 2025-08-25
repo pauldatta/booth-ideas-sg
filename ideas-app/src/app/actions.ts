@@ -11,6 +11,7 @@ import { z } from 'zod';
 import type { GenerationResult, ServerActionState, GitHubPushResult } from '@/lib/types';
 import JSZip from 'jszip';
 import { Octokit } from '@octokit/rest';
+import { marked } from 'marked';
 
 const ideaSchema = z.object({
   idea: z.string().min(20, { message: "Your idea is too short. Please elaborate a bit more to get better results!" }),
@@ -170,10 +171,19 @@ export async function generateAll(prevState: ServerActionState, formData: FormDa
       prdPromiseFull,
     ]);
     
+    console.log("--- Raw PRD for GitHub Issue ---");
+    console.log(prd.prd);
+    
+    // Convert PRD markdown to HTML
+    const fullPrdHtml = await marked.parse(prd.prd);
+
+    console.log("--- HTML PRD for App View ---");
+    console.log(fullPrdHtml);
+
     // Automatically push to GitHub
     const githubResult = await pushPrdToGitHub(prd.prd, projectTitleResult.projectTitle);
 
-    const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, githubResult };
+    const result: GenerationResult = { prd: prdOverview, criteria, code, fullPrd: prd, fullPrdHtml, githubResult };
     
     return { success: true, data: result, error: null };
   } catch (error) {
@@ -454,18 +464,3 @@ const initialState: ServerActionState = {
   data: undefined,
   error: null,
 };
-
-    
-
-    
-
-
-
-
-    
-
-
-
-    
-
-    

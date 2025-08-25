@@ -15,6 +15,7 @@ export interface GenerationResult {
   criteria: SuggestEvaluationCriteriaOutput;
   code: GenerateCodeOutput;
   fullPrd: GeneratePrdOutput;
+  fullPrdHtml: string;
   githubResult: GitHubPushResult;
 }
 
