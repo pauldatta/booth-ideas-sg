@@ -1,0 +1,27 @@
+---
+const recommendation = {
+  top: 'T-Shirt',
+  bottom: 'Jeans',
+  outerwear: 'Light Jacket',
+  shoes: 'Sneakers',
+};
+---
+
+<div class="outfit-recommendation">
+  <h2>Outfit Recommendation</h2>
+  <ul>
+    <li><strong>Top:</strong> {recommendation.top}</li>
+    <li><strong>Bottom:</strong> {recommendation.bottom}</li>
+    <li><strong>Outerwear:</strong> {recommendation.outerwear}</li>
+    <li><strong>Shoes:</strong> {recommendation.shoes}</li>
+  </ul>
+</div>
+
+<style>
+  .outfit-recommendation {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+</style>
