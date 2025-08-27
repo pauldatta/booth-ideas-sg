@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// This is a dynamic page. In a real app, you'd fetch data based on the id.
+// For now, we'll just use mock data.
+const { id } = Astro.params;
+
+const plant = {
+  id: id,
+  name: 'Pothos',
+  scientificName: 'Epipremnum aureum',
+  acquisitionDate: '2023-01-15',
+  location: 'Living Room',
+  potType: 'Ceramic',
+  notes: 'Water every 7-10 days.'
+};
+---
+
+<Layout title={plant.name}>
+	<main>
+		<h1>{plant.name}</h1>
+		<p><em>{plant.scientificName}</em></p>
+		<p><strong>Acquisition Date:</strong> {plant.acquisitionDate}</p>
+		<p><strong>Location:</strong> {plant.location}</p>
+		<p><strong>Pot Type:</strong> {plant.potType}</p>
+		<p><strong>Notes:</strong> {plant.notes}</p>
+		<a href={`/plants/${plant.id}/edit`}>Edit Plant</a>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	a {
+		color: white;
+	}
+</style>

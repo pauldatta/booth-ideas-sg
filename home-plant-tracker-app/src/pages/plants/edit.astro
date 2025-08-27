@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// In a real app, you'd fetch the plant data based on the id from the URL query params.
+const url = new URL(Astro.request.url);
+const id = url.searchParams.get('id');
+
+// Mock data for now
+const plant = {
+  id: id,
+  name: 'Pothos',
+  scientificName: 'Epipremnum aureum',
+  acquisitionDate: '2023-01-15',
+  location: 'Living Room',
+  potType: 'Ceramic',
+  notes: 'Water every 7-10 days.'
+};
+---
+
+<Layout title={`Edit ${plant.name}`}>
+	<main>
+		<h1>Edit {plant.name}</h1>
+		<form>
+			<input type="hidden" name="id" value={id} />
+			<div>
+				<label for="name">Plant Name (Common Name)</label>
+				<input type="text" id="name" name="name" value={plant.name} required />
+			</div>
+			<div>
+				<label for="scientificName">Scientific Name</label>
+				<input type="text" id="scientificName" name="scientificName" value={plant.scientificName} />
+			</div>
+			<div>
+				<label for="acquisitionDate">Acquisition Date</label>
+				<input type="date" id="acquisitionDate" name="acquisitionDate" value={plant.acquisitionDate} />
+			</div>
+			<div>
+				<label for="location">Location</label>
+				<input type="text" id="location" name="location" value={plant.location} />
+			</div>
+			<div>
+				<label for="potType">Pot Type</label>
+				<input type="text" id="potType" name="potType" value={plant.potType} />
+			</div>
+			<div>
+				<label for="notes">Notes</label>
+				<textarea id="notes" name="notes">{plant.notes}</textarea>
+			</div>
+			<button type="submit">Save Changes</button>
+		</form>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	form div {
+		margin-bottom: 1rem;
+	}
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+	input, textarea {
+		width: 100%;
+		padding: 0.5rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #222;
+		color: white;
+	}
+	button {
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #444;
+		color: white;
+		cursor: pointer;
+	}
+</style>

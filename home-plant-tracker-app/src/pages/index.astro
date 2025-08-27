@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Mock data for now
+const plants = [
+  { id: 1, name: 'Pothos', scientificName: 'Epipremnum aureum' },
+  { id: 2, name: 'Fiddle Leaf Fig', scientificName: 'Ficus lyrata' },
+  { id: 3, name: 'Monstera Deliciosa', scientificName: 'Monstera deliciosa' },
+];
+---
+
+<Layout title="PlantPal - Your Plants">
+	<main>
+		<h1>Your Plant Collection</h1>
+		<ul>
+			{plants.map(plant => (
+				<li>
+					<a href={`/plants/${plant.id}`}>
+						<h2>{plant.name}</h2>
+						<p><em>{plant.scientificName}</em></p>
+					</a>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		border: 1px solid #333;
+		border-radius: 0.5rem;
+		margin-bottom: 1rem;
+		padding: 1rem;
+	}
+	a {
+		text-decoration: none;
+		color: white;
+	}
+	h2 {
+		margin: 0;
+	}
+</style>

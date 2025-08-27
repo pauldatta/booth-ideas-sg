@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Add a New Plant">
+	<main>
+		<h1>Add a New Plant</h1>
+		<form>
+			<div>
+				<label for="name">Plant Name (Common Name)</label>
+				<input type="text" id="name" name="name" required />
+			</div>
+			<div>
+				<label for="scientificName">Scientific Name</label>
+				<input type="text" id="scientificName" name="scientificName" />
+			</div>
+			<div>
+				<label for="acquisitionDate">Acquisition Date</label>
+				<input type="date" id="acquisitionDate" name="acquisitionDate" />
+			</div>
+			<div>
+				<label for="location">Location</label>
+				<input type="text" id="location" name="location" />
+			</div>
+			<div>
+				<label for="potType">Pot Type</label>
+				<input type="text" id="potType" name="potType" />
+			</div>
+			<div>
+				<label for="notes">Notes</label>
+				<textarea id="notes" name="notes"></textarea>
+			</div>
+			<button type="submit">Add Plant</button>
+		</form>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	form div {
+		margin-bottom: 1rem;
+	}
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+	input, textarea {
+		width: 100%;
+		padding: 0.5rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #222;
+		color: white;
+	}
+	button {
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #444;
+		color: white;
+		cursor: pointer;
+	}
+</style>

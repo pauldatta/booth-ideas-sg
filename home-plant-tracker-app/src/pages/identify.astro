@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Identify a Plant">
+	<main>
+		<h1>Identify a Plant</h1>
+		<p>Upload a photo of your plant to identify it.</p>
+		<form>
+			<div>
+				<label for="plantImage">Plant Image</label>
+				<input type="file" id="plantImage" name="plantImage" accept="image/*" />
+			</div>
+			<button type="submit">Identify</button>
+		</form>
+		<div id="results">
+			{/* Mock results will be displayed here */}
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	form div {
+		margin-bottom: 1rem;
+	}
+	label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+	input {
+		width: 100%;
+		padding: 0.5rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #222;
+		color: white;
+	}
+	button {
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		border: 1px solid #333;
+		background: #444;
+		color: white;
+		cursor: pointer;
+	}
+</style>
