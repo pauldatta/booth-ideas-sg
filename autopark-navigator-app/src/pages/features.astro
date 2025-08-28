@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Features - AutoPark Navigator">
+	<main class="container mx-auto p-4">
+		<h1 class="text-4xl font-bold mb-4 text-center">Features</h1>
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div class="bg-gray-800 p-6 rounded-lg">
+				<h2 class="text-2xl font-bold mb-2">Automatic Parking Location Tracking</h2>
+				<p>The app will automatically detect when the user has parked their car and log the precise GPS coordinates. This detection will rely on a combination of factors, including cessation of vehicle movement (via accelerometer/gyroscope data), disconnect from car's Bluetooth/Apple CarPlay/Android Auto, and changes in Wi-Fi networks.</p>
+			</div>
+			<div class="bg-gray-800 p-6 rounded-lg">
+				<h2 class="text-2xl font-bold mb-2">Manual Parking Details Input</h2>
+				<p>Users can manually add or edit details about their parking spot, such as floor number, section, specific row/pillar identification, and even attach a photo or a voice memo. This enhances accuracy in complex environments like multi-story garages.</p>
+			</div>
+		</div>
+	</main>
+</Layout>

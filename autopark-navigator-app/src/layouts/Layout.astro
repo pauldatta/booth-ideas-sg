@@ -1,0 +1,37 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="bg-gray-900 text-white">
+		<header class="p-4 border-b border-gray-700">
+			<nav class="container mx-auto flex justify-between">
+				<a href="/" class="text-2xl font-bold">AutoPark Navigator</a>
+				<div>
+					<a href="/features" class="mr-4">Features</a>
+					<a href="/download">Download</a>
+				</div>
+			</nav>
+		</header>
+		<slot />
+		<footer class="p-4 border-t border-gray-700 mt-8">
+			<div class="container mx-auto text-center">
+				<p>&copy; 2025 AutoPark Navigator. All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>
