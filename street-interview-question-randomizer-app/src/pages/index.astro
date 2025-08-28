@@ -1,0 +1,108 @@
+---
+const questions = [
+  "What's the most spontaneous thing you've ever done?",
+  "If you could have any superpower, what would it be and why?",
+  "What's a skill you'd love to learn?",
+  "What's your favorite thing about this city?",
+  "If you could give one piece of advice to your younger self, what would it be?",
+  "What's a movie that always makes you laugh?",
+  "What's the best meal you've ever had?",
+  "If you could travel anywhere in the world, where would you go?",
+  "What's a hidden gem in this city that more people should know about?",
+  "What's a song that can always put you in a good mood?"
+];
+
+let randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Street Interview Question Randomizer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f0f0f0;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .question-container {
+      margin: 2rem 0;
+      padding: 2rem;
+      border: 2px dashed #ccc;
+      border-radius: 0.5rem;
+      min-height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #question {
+      font-size: 1.5rem;
+      font-style: italic;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 0.5rem;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Street Interview Question Randomizer</h1>
+    <div class="question-container">
+      <p id="question">{randomQuestion}</p>
+    </div>
+    <button id="generate-btn">Generate New Question</button>
+  </div>
+
+  <script>
+    const questions = [
+      "What's the most spontaneous thing you've ever done?",
+      "If you could have any superpower, what would it be and why?",
+      "What's a skill you'd love to learn?",
+      "What's your favorite thing about this city?",
+      "If you could give one piece of advice to your younger self, what would it be?",
+      "What's a movie that always makes you laugh?",
+      "What's the best meal you've ever had?",
+      "If you could travel anywhere in the world, where would you go?",
+      "What's a hidden gem in this city that more people should know about?",
+      "What's a song that can always put you in a good mood?"
+    ];
+
+    const questionElement = document.getElementById('question');
+    const generateBtn = document.getElementById('generate-btn');
+
+    generateBtn.addEventListener('click', () => {
+      const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+      questionElement.textContent = randomQuestion;
+    });
+  </script>
+</body>
+</html>
