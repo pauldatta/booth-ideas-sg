@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="SurplusConnect">
+  <main class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <header class="w-full py-8 text-center bg-white shadow-md">
+      <h1 class="text-5xl font-bold text-gray-800">SurplusConnect</h1>
+      <p class="mt-2 text-xl text-gray-600">Connecting surplus food with those in need.</p>
+    </header>
+
+    <section class="w-full max-w-4xl px-8 py-16">
+      <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Our Mission</h2>
+      <p class="text-lg text-gray-700">
+        SurplusConnect is a centralized, intelligent platform enabling grocery stores to efficiently track their edible surplus food and automatically connect with a network of local charities for timely pickup and distribution. By leveraging AI and streamlining logistics, SurplusConnect aims to transform how grocery waste is managed, ensuring that nutritious, edible food reaches those in need rather than landfills.
+      </p>
+    </section>
+
+    <section class="w-full max-w-4xl px-8 py-16 bg-white shadow-md">
+      <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Key Features</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">Food Waste Logging</h3>
+          <p class="text-gray-700">Easily log surplus food items as they become available for donation.</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">AI-Powered Prediction</h3>
+          <p class="text-gray-700">Utilizes machine learning to predict potential surplus and optimize donation timing.</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">Charity Matching</h3>
+          <p class="text-gray-700">Connects grocery stores with nearby charities based on their needs and capacity.</p>
+        </div>
+        <div class="p-6 bg-gray-100 rounded-lg">
+          <h3 class="mb-4 text-2xl font-bold text-gray-800">Automated Notifications</h3>
+          <p class="text-gray-700">Real-time alerts for both grocery staff and charities about available food and pickup schedules.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full max-w-4xl px-8 py-16">
+      <h2 class="mb-8 text-3xl font-bold text-center text-gray-800">Get Involved</h2>
+      <div class="flex justify-center space-x-8">
+        <a href="#" class="px-8 py-4 text-lg font-bold text-white bg-blue-600 rounded-lg hover:bg-blue-700">Grocery Stores</a>
+        <a href="#" class="px-8 py-4 text-lg font-bold text-white bg-green-600 rounded-lg hover:bg-green-700">Charities</a>
+      </div>
+    </section>
+
+    <footer class="w-full py-8 mt-16 text-center bg-white shadow-md">
+      <p class="text-gray-600">&copy; 2025 SurplusConnect. All rights reserved.</p>
+    </footer>
+  </main>
+</Layout>
