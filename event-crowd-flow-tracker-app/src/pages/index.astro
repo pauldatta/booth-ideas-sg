@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/layout/Header.astro';
+import MapView from '../components/dashboard/MapView.astro';
+import Alerts from '../components/dashboard/Alerts.astro';
+import PredictiveAnalytics from '../components/dashboard/PredictiveAnalytics.astro';
+import HistoricalData from '../components/dashboard/HistoricalData.astro';
+---
+
+<Layout title="Event Crowd Flow Management">
+	<Header />
+	<main class="container mx-auto p-4 text-white">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+			<div class="md:col-span-2 space-y-4">
+				<MapView />
+				<PredictiveAnalytics />
+			</div>
+			<div class="space-y-4">
+				<Alerts />
+				<HistoricalData />
+			</div>
+		</div>
+	</main>
+</Layout>
