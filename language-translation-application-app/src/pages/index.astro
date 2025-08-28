@@ -1,0 +1,74 @@
+---
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Language Translation</title>
+	</head>
+	<body>
+		<h1>Language Translation</h1>
+
+		<main>
+			<textarea id="text-input" rows="10" cols="50" placeholder="Enter text to translate..."></textarea>
+			<br />
+			<select id="language-select">
+				<option value="es">Spanish</option>
+				<option value="fr">French</option>
+				<option value="de">German</option>
+				<option value="ja">Japanese</option>
+			</select>
+			<button id="translate-btn">Translate</button>
+			<div id="translated-text"></div>
+		</main>
+
+		<script>
+			document.getElementById('translate-btn').addEventListener('click', async () => {
+				const text = (document.getElementById('text-input') as HTMLTextAreaElement).value;
+				const targetLang = (document.getElementById('language-select') as HTMLSelectElement).value;
+				const translatedTextDiv = document.getElementById('translated-text');
+
+				if (translatedTextDiv) {
+					translatedTextDiv.innerText = 'Translating...';
+
+					try {
+						const response = await fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=en|${targetLang}`);
+						const data = await response.json();
+						translatedTextDiv.innerText = data.responseData.translatedText;
+					} catch (error) {
+						translatedTextDiv.innerText = 'Error: Could not translate text.';
+						console.error('Translation error:', error);
+					}
+				}
+			});
+		</script>
+
+		<style>
+			body {
+				font-family: sans-serif;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				min-height: 100vh;
+				margin: 0;
+			}
+			main {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 1rem;
+				padding: 1rem;
+			}
+			#translated-text {
+				margin-top: 1rem;
+				padding: 1rem;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				min-height: 50px;
+				width: 300px;
+			}
+		</style>
+	</body>
+</html>
