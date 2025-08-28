@@ -1,0 +1,29 @@
+---
+export interface Props {
+  locker: {
+    id: number;
+    name: string;
+  };
+}
+
+const { locker } = Astro.props;
+---
+
+<a href={`/locker/${locker.id}`} class="locker-item">
+  <h3>{locker.name}</h3>
+</a>
+
+<style>
+  .locker-item {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: white;
+    transition: background 0.2s ease-in-out;
+  }
+
+  .locker-item:hover {
+    background: #334155;
+  }
+</style>

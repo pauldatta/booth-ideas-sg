@@ -1,0 +1,21 @@
+---
+import LockerItem from './LockerItem.astro';
+
+const lockers = [
+  { id: 1, name: 'Gym Locker' },
+  { id: 2, name: 'Work Locker' },
+  { id: 3, name: 'School Locker' },
+];
+---
+
+<div class="locker-list">
+  {lockers.map(locker => <LockerItem locker={locker} />)}
+</div>
+
+<style>
+  .locker-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+</style>
