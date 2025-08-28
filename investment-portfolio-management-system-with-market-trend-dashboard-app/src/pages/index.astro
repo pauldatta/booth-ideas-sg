@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Market Indices -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Market Indices</h2>
+      <ul>
+        <li>S&P 500: 4,500.00 (+0.50%)</li>
+        <li>NASDAQ: 14,000.00 (+0.75%)</li>
+        <li>Dow Jones: 35,000.00 (+0.25%)</li>
+      </ul>
+    </div>
+
+    <!-- Top Gainers -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Top Gainers</h2>
+      <ul>
+        <li>AAPL: $150.00 (+2.50%)</li>
+        <li>GOOGL: $2,800.00 (+1.75%)</li>
+        <li>AMZN: $3,400.00 (+1.25%)</li>
+      </ul>
+    </div>
+
+    <!-- Top Losers -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Top Losers</h2>
+      <ul>
+        <li>TSLA: $700.00 (-1.50%)</li>
+        <li>NFLX: $500.00 (-2.75%)</li>
+        <li>BABA: $150.00 (-3.25%)</li>
+      </ul>
+    </div>
+
+    <!-- News Feed -->
+    <div class="md:col-span-2 lg:col-span-3 bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Real-time News Feed</h2>
+      <ul>
+        <li><span class="font-bold">Bloomberg:</span> Federal Reserve hints at tapering asset purchases.</li>
+        <li><span class="font-bold">Reuters:</span> Tech stocks rally on strong earnings reports.</li>
+        <li><span class="font-bold">Wall Street Journal:</span> Oil prices surge on supply concerns.</li>
+      </ul>
+    </div>
+
+    <!-- Economic Calendar -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Economic Calendar</h2>
+      <ul>
+        <li><span class="font-bold">Today:</span> FOMC Meeting Minutes</li>
+        <li><span class="font-bold">Tomorrow:</span> Initial Jobless Claims</li>
+        <li><span class="font-bold">Next Week:</span> Consumer Price Index (CPI)</li>
+      </ul>
+    </div>
+
+    <!-- Watchlist -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h2 class="text-xl font-bold mb-2">Watchlist</h2>
+      <ul>
+        <li>MSFT: $300.00 (+1.00%)</li>
+        <li>NVDA: $220.00 (+3.50%)</li>
+        <li>PYPL: $250.00 (-0.50%)</li>
+      </ul>
+    </div>
+  </div>
+</Layout>
