@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const order = {
+	id: 1,
+	customer: 'John Doe',
+	address: '123 Main St',
+	status: 'Pending',
+	items: [
+		{ id: 1, name: 'Product A', quantity: 2 },
+		{ id: 2, name: 'Product B', quantity: 1 },
+	],
+};
+---
+
+<Layout title={`Order #${order.id}`}>
+	<main>
+		<h1>Order #{order.id}</h1>
+		<div>
+			<p><strong>Customer:</strong> {order.customer}</p>
+			<p><strong>Address:</strong> {order.address}</p>
+			<p><strong>Status:</strong> {order.status}</p>
+		</div>
+		<h2>Items</h2>
+		<ul>
+			{order.items.map(item => (
+				<li>{item.name} (x{item.quantity})</li>
+			))}
+		</ul>
+		<a href="/dashboard">Back to Dashboard</a>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	div {
+		margin-bottom: 1rem;
+	}
+	h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		margin-bottom: 0.5rem;
+	}
+	a {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		background-color: #007bff;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+</style>

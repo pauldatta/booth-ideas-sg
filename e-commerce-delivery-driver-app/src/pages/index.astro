@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Driver Login">
+	<main>
+		<h1>E-commerce Driver Delivery App</h1>
+		<form>
+			<div>
+				<label for="username">Username</label>
+				<input type="text" id="username" name="username" />
+			</div>
+			<div>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" />
+			</div>
+			<a href="/dashboard">Login</a>
+		</form>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+	div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	label {
+		font-size: 1.2rem;
+	}
+	input {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+		border-radius: 0.25rem;
+		border: 1px solid #ccc;
+	}
+	a {
+		display: inline-block;
+		padding: 0.5rem 1rem;
+		border-radius: 0.25rem;
+		background-color: #007bff;
+		color: white;
+		text-decoration: none;
+		text-align: center;
+		font-size: 1.2rem;
+	}
+</style>

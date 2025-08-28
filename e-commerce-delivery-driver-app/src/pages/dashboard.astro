@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const orders = [
+	{ id: 1, customer: 'John Doe', address: '123 Main St', status: 'Pending' },
+	{ id: 2, customer: 'Jane Smith', address: '456 Oak Ave', status: 'In Progress' },
+	{ id: 3, customer: 'Peter Jones', address: '789 Pine Ln', status: 'Delivered' },
+];
+---
+
+<Layout title="Dashboard">
+	<main>
+		<h1>Dashboard</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Order ID</th>
+					<th>Customer</th>
+					<th>Address</th>
+					<th>Status</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{orders.map(order => (
+					<tr>
+						<td>{order.id}</td>
+						<td>{order.customer}</td>
+						<td>{order.address}</td>
+						<td>{order.status}</td>
+						<td><a href={`/order/${order.id}`}>View</a></td>
+					</tr>
+				))}
+			</tbody>
+		</table>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	th, td {
+		border: 1px solid white;
+		padding: 0.5rem;
+		text-align: left;
+	}
+	th {
+		background-color: #333;
+	}
+	a {
+		color: #007bff;
+		text-decoration: none;
+	}
+</style>
