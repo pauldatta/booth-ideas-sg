@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<div class="space-y-8">
+		<section class="text-center">
+			<h2 class="text-4xl font-bold">Discover Singapore's Best Single-Origin Coffee</h2>
+			<p class="mt-4 text-lg text-gray-600">Your AI-powered guide to the finest coffee roasters in Singapore.</p>
+		</section>
+
+		<section>
+			<h3 class="text-2xl font-bold">Featured Roasters</h3>
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+				<!-- Roaster Card 1 -->
+				<div class="bg-white rounded-lg shadow p-6">
+					<h4 class="text-xl font-bold">Nylon Coffee Roasters</h4>
+					<p class="mt-2 text-gray-600">A stalwart of the Singapore coffee scene, known for their meticulous sourcing and roasting.</p>
+					<a href="#" class="text-blue-500 hover:underline mt-4 inline-block">View Profile</a>
+				</div>
+				<!-- Roaster Card 2 -->
+				<div class="bg-white rounded-lg shadow p-6">
+					<h4 class="text-xl font-bold">Tiong Hoe Specialty Coffee</h4>
+					<p class="mt-2 text-gray-600">A heritage brand with a passion for quality and a wide selection of beans.</p>
+					<a href="#" class="text-blue-500 hover:underline mt-4 inline-block">View Profile</a>
+				</div>
+				<!-- Roaster Card 3 -->
+				<div class="bg-white rounded-lg shadow p-6">
+					<h4 class="text-xl font-bold">Apartment Coffee</h4>
+					<p class="mt-2 text-gray-600">A minimalist cafe that focuses on clean, light, and aromatic coffees.</p>
+					<a href="#" class="text-blue-500 hover:underline mt-4 inline-block">View Profile</a>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h3 class="text-2xl font-bold">Bean Catalog</h3>
+			<div class="mt-4">
+				<input type="text" placeholder="Search for beans, origins, or flavors..." class="w-full p-3 border rounded-lg">
+			</div>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+				<!-- Bean Card 1 -->
+				<div class="bg-white rounded-lg shadow p-6">
+					<h4 class="text-xl font-bold">Ethiopia Yirgacheffe</h4>
+					<p class="mt-2 text-gray-600">Washed process, with notes of citrus, bergamot, and black tea.</p>
+					<p class="mt-2 font-semibold">From Nylon Coffee Roasters</p>
+				</div>
+				<!-- Bean Card 2 -->
+				<div class="bg-white rounded-lg shadow p-6">
+					<h4 class="text-xl font-bold">Colombia La Esmeralda</h4>
+					<p class="mt-2 text-gray-600">Natural process, with notes of tropical fruit, red berries, and a winey acidity.</p>
+					<p class="mt-2 font-semibold">From Tiong Hoe Specialty Coffee</p>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>
