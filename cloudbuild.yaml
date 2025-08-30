@@ -1,13 +1,14 @@
 steps:
   # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
+  dir: 'ideas-app' # <--- This sets the working directory for this step
   args:
   - 'build'
   - '-t'
   - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_NAME}:${COMMIT_SHA}'
-  - '.'
+  - '.' # <--- The context is now the 'ideas-app' directory
   - '-f'
-  - 'ideas-app/Dockerfile'
+  - 'Dockerfile' # <--- The Dockerfile is at the root of the context
 
   # Push the container image to Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'

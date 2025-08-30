@@ -24,17 +24,27 @@ data "google_secret_manager_secret_version" "gemini_api_key" {
   secret  = var.gemini_api_key_secret_name
 }
 
+# --- API Services ---
+# Enable the Cloud Build API
+resource "google_project_service" "cloudbuild_api" {
+  project            = var.project_id
+  service            = "cloudbuild.googleapis.com"
+  disable_on_destroy = false
+}
+
 # --- IAM for Cloud Build Service Account ---
 resource "google_project_iam_member" "cloudbuild_run_admin" {
   project = var.project_id
   role    = "roles/run.admin"
   member  = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
+  depends_on = [google_project_service.cloudbuild_api]
 }
 
 resource "google_project_iam_member" "cloudbuild_service_account_user" {
   project = var.project_id
   role    = "roles/iam.serviceAccountUser"
   member  = "serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"
+  depends_on = [google_project_service.cloudbuild_api]
 }
 
 # --- IAM for Cloud Run Service Account to access secrets ---
@@ -92,11 +102,12 @@ resource "google_cloud_run_v2_service" "default" {
     percent         = 100
     type            = "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST"
   }
+  deletion_protection = false
 }
 
-resource "google_cloud_run_service_iam_member" "noauth" {
-  location = google_cloud_run_v2_service.default.location
-  service  = google_cloud_run_v2_service.default.name
-  role     = "roles/run.invoker"
-  member   = "allUsers"
-}
+# resource "google_cloud_run_service_iam_member" "noauth" {
+#   location = google_cloud_run_v2_service.default.location
+#   service  = google_cloud_run_v2_service.default.name
+#   role     = "roles/run.invoker"
+#   member   = "allUsers"
+# }
