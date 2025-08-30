@@ -55,6 +55,35 @@ h1 {
     box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
 }
 
+#filter-container {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.filter-btn {
+    background-color: #f1f3f4;
+    border: 1px solid #dadce0;
+    border-radius: 16px;
+    padding: 0.5rem 1rem;
+    font-family: 'Google Sans', sans-serif;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #e8eaed;
+}
+
+.filter-btn.active {
+    background-color: #1a73e8;
+    color: #ffffff;
+    border-color: #1a73e8;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -70,7 +99,19 @@ main {
     padding: 1.5rem;
     text-align: left;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-left: 4px solid #dadce0; /* Default border */
 }
+
+/* Category-specific border colors */
+.category-logistics { border-left-color: #4285F4; } /* Blue */
+.category-education { border-left-color: #34A853; } /* Green */
+.category-finance { border-left-color: #FBBC04; } /* Yellow */
+.category-lifestyle { border-left-color: #EA4335; } /* Red */
+.category-productivity { border-left-color: #9AA0A6; } /* Gray */
+.category-utilities { border-left-color: #A142F4; } /* Purple */
+.category-health { border-left-color: #24C1E0; } /* Cyan */
+.category-developer-tools { border-left-color: #FF6D01; } /* Orange */
+.category-e-commerce { border-left-color: #137333; } /* Dark Green */
 
 .card:hover {
     transform: translateY(-5px);
@@ -83,6 +124,17 @@ main {
     margin-top: 0;
     margin-bottom: 0.5rem;
     color: #202124;
+}
+
+.card .category-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    background-color: #f1f3f4;
+    color: #5f6368;
+    display: inline-block;
+    margin-bottom: 1rem;
 }
 
 .card .info {
