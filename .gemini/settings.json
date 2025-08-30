@@ -1,7 +1,10 @@
 {
   "mcpServers": {
-    "context7": {
-      "httpUrl": "https://mcp.context7.com/mcp"
+   "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
     }
   }
 }
