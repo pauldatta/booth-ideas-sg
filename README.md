@@ -4,6 +4,12 @@ Welcome! This repository contains the source code for the "Idea to Code" demo ap
 
 This interactive demo showcases how generative AI can dramatically accelerate the software development lifecycle, taking a simple idea from concept to a functional, deployable prototype in minutes.
 
+## 💡 Idea Gallery
+
+All the ideas generated during the event are available for you to explore in our interactive gallery.
+
+**[Browse the Idea Gallery](https://pauldatta.github.io/booth-ideas-sg/)**
+
 ## Demo Video
 
 Watch the complete demonstration of the "Idea to Code" workflow in action.
