@@ -20,6 +20,24 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
+#idea-count {
+    color: #5f6368;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
 #search-input {
     width: 100%;
     max-width: 400px;
@@ -58,6 +76,7 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(60,64,67,0.3), 0 8px 16px rgba(60,64,67,0.15);
 }
+
 
 .card h2 {
     font-size: 1.5rem;
@@ -108,4 +127,103 @@ main {
 footer {
     margin-top: 4rem;
     color: #5f6368;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.timeline-container h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #202124;
+    margin-bottom: 1rem;
+}
+
+.timeline-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #dadce0;
+    border-radius: 4px;
+    position: relative;
+}
+
+#timeline-events {
+    position: relative;
+    height: 100%;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #1a73e8;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    top: -4px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.timeline-dot:hover {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.timeline-dot .tooltip {
+    visibility: hidden;
+    width: 220px;
+    background-color: #3c4043;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 170%;
+    left: 50%;
+    margin-left: -110px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.timeline-dot .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #3c4043 transparent transparent transparent;
+}
+
+.timeline-dot:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    color: #5f6368;
+    font-size: 0.875rem;
 }

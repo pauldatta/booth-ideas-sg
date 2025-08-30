@@ -11,31 +11,23 @@
     <header>
         <h1>Idea Gallery</h1>
         <p>A collection of ideas generated at the AI Asia 2025 Google Cloud booth on August 28th.</p>
+        <p id="idea-count"></p>
+        <label for="search-input" class="sr-only">Search for ideas</label>
         <input type="text" id="search-input" placeholder="Search for ideas...">
     </header>
-    <main id="gallery-container">
-        <div class="card"><h2>Interactive Planetary Alignment System</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/166" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Event Crowd Flow Tracker</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/164" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Warehouse Material Picking Route Optimizer</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/162" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Matchstick Counter App</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/160" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Primary Math Learning App</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/158" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>E-commerce Delivery Driver App</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/156" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Meal Image Nutrition Analyzer</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/154" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Hotel Gym Guest Check-in System</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/152" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Language Translation Application</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/150" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Weekly Spending Budget Planner</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/148" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Digital Counter Application</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/146" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Scalable Image Chunking Web Platform</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/144" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Investment Portfolio Management System with Market Trend Dashboard</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/142" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Car Listing Platform</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/140" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Automated Software Delivery Controls Assurance</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/138" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Street Interview Question Randomizer</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/136" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Personalized Financial Playlist Creator</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/134" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Singapore Single Origin Coffee Roaster Recommendations</h2><div class="links"><a href=".github.com/pauldatta/booth-ideas-sg/issues/132" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Retail Food Waste Redistribution System</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/130" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Automated Parking Location Tracker</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/128" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-        <div class="card"><h2>Food Logistics Management Platform</h2><div class="links"><a href="https://github.com/pauldatta/booth-ideas-sg/issues/126" target="_blank" rel="noopener noreferrer">View Details</a></div></div>
-    </main>
+    <div class="timeline-container">
+        <h3>Timeline of Ideas</h3>
+        <div class="timeline-bar">
+            <div id="timeline-events"></div>
+        </div>
+        <div class="timeline-labels">
+            <span>9 AM</span>
+            <span>12 PM</span>
+            <span>3 PM</span>
+            <span>6 PM</span>
+        </div>
+    </div>
+    <main id="gallery-container"></main>
     <footer>
         <p>Powered by Gemini</p>
     </footer>
