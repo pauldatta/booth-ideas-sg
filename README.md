@@ -8,7 +8,7 @@ This interactive demo showcases how generative AI can dramatically accelerate th
 
 Watch the complete demonstration of the "Idea to Code" workflow in action.
 
-[Watch the demo video](media/AI%20Asia%20-%20idea%20to%20code%20video%20demo%20cut.mp4)
+![Demo Video](media/demo.gif)
 
 ## Workflow
 
