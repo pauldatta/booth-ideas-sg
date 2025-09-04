@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Recommendations - Google Cloud Cost Optimizer">
+	<h1 class="text-4xl font-bold mb-8">Recommendations</h1>
+	<div class="bg-gray-800 p-6 rounded-lg">
+		<h2 class="text-2xl font-bold mb-4">Cost Saving Opportunities</h2>
+		<ul>
+			<li class="border-b border-gray-700 py-4">
+				<h3 class="text-xl font-bold">Right-size VM instances</h3>
+				<p class="text-gray-400">2 instances are oversized.</p>
+				<p class="text-green-500 font-bold">Potential Savings: $500/month</p>
+			</li>
+			<li class="border-b border-gray-700 py-4">
+				<h3 class="text-xl font-bold">Delete unattached disks</h3>
+				<p class="text-gray-400">5 unattached disks found.</p>
+				<p class="text-green-500 font-bold">Potential Savings: $120/month</p>
+			</li>
+			<li class="py-4">
+				<h3 class="text-xl font-bold">Optimize storage classes</h3>
+				<p class="text-gray-400">10TB of data can be moved to a cheaper storage class.</p>
+				<p class="text-green-500 font-bold">Potential Savings: $300/month</p>
+			</li>
+		</ul>
+	</div>
+</Layout>
