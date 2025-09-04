@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Settings - Google Cloud Cost Optimizer">
+	<h1 class="text-4xl font-bold mb-8">Settings</h1>
+	<div class="bg-gray-800 p-6 rounded-lg">
+		<h2 class="text-2xl font-bold mb-4">Connect your GCP Account</h2>
+		<form>
+			<div class="mb-4">
+				<label for="project-id" class="block text-sm font-bold mb-2">GCP Project ID</label>
+				<input type="text" id="project-id" class="w-full bg-gray-700 border border-gray-600 rounded py-2 px-3" />
+			</div>
+			<div class="mb-4">
+				<label for="service-account" class="block text-sm font-bold mb-2">Service Account Key (JSON)</label>
+				<textarea id="service-account" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded py-2 px-3"></textarea>
+			</div>
+			<button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+				Connect
+			</button>
+		</form>
+	</div>
+</Layout>
