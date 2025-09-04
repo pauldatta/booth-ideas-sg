@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <h1 class="text-3xl font-bold">Recommendations</h1>
+  <div class="mt-8">
+    <div class="rounded-lg bg-white p-6 shadow-md">
+      <h2 class="text-xl font-semibold">Right-size Compute Engine instances</h2>
+      <p class="mt-2">Based on your usage, we recommend downsizing 5 instances to save an estimated $500/month.</p>
+      <button class="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white">View Details</button>
+    </div>
+    <div class="mt-4 rounded-lg bg-white p-6 shadow-md">
+      <h2 class="text-xl font-semibold">Delete unused persistent disks</h2>
+      <p class="mt-2">We found 3 unattached disks that can be deleted to save an estimated $50/month.</p>
+      <button class="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white">View Details</button>
+    </div>
+  </div>
+</Layout>
