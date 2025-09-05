@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import FeedbackStream from '../components/FeedbackStream.astro';
+import SentimentAnalysis from '../components/SentimentAnalysis.astro';
+import TopicCloud from '../components/TopicCloud.astro';
+import RouteMap from '../components/RouteMap.astro';
+import ReportGenerator from '../components/ReportGenerator.astro';
+---
+
+<Layout title="LTA Feedback Analysis Dashboard">
+  <Header />
+  <div class="grid">
+    <div class="col-12">
+      <FeedbackStream />
+    </div>
+    <div class="col-6">
+      <SentimentAnalysis />
+    </div>
+    <div class="col-6">
+      <TopicCloud />
+    </div>
+    <div class="col-12">
+      <RouteMap />
+    </div>
+    <div class="col-12">
+      <ReportGenerator />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .col-12 {
+    grid-column: span 12;
+  }
+  .col-6 {
+    grid-column: span 6;
+  }
+</style>

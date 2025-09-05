@@ -1,0 +1,30 @@
+<section>
+  <h2>Sentiment Analysis</h2>
+  <div class="chart">
+    <div class="bar positive" style="width: 60%;">Positive (60%)</div>
+    <div class="bar negative" style="width: 30%;">Negative (30%)</div>
+    <div class="bar neutral" style="width: 10%;">Neutral (10%)</div>
+  </div>
+</section>
+
+<style>
+  .chart {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .bar {
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+  }
+  .positive {
+    background-color: #4caf50;
+  }
+  .negative {
+    background-color: #f44336;
+  }
+  .neutral {
+    background-color: #9e9e9e;
+  }
+</style>
